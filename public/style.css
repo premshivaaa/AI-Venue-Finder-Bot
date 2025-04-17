@@ -1,0 +1,205 @@
+:root {
+    --primary-color: #6e48aa;
+    --secondary-color: #9d50bb;
+    --dark-bg: #1a1a2e;
+    --darker-bg: #16213e;
+    --text-color: #e6e6e6;
+    --bot-bubble: #2c3e50;
+    --user-bubble: #6e48aa;
+    --card-bg: #2c3e50;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 800px;
+    height: 80vh;
+    background-color: var(--darker-bg);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 15px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header p {
+    margin: 5px 0 0;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.chat-display {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bot-message, .user-message {
+    max-width: 80%;
+    padding: 12px 15px;
+    border-radius: 18px;
+    line-height: 1.5;
+}
+
+.bot-message {
+    background-color: var(--bot-bubble);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.user-message {
+    background-color: var(--user-bubble);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.venue-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.venue-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.venue-card h3 {
+    margin-top: 0;
+    color: #fff;
+}
+
+.venue-card p {
+    margin: 5px 0;
+}
+
+.details-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.venue-details {
+    display: none;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.input-area {
+    display: flex;
+    padding: 15px;
+    background-color: var(--darker-bg);
+    border-top: 1px solid #333;
+}
+
+.input-area input {
+    flex: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #2c3e50;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.input-area input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.input-area button {
+    margin-left: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.input-area button:hover {
+    opacity: 0.9;
+}
+
+/* Loading animation */
+.loading-dots {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.loading-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    margin: 0 2px;
+    opacity: 0;
+    animation: loading 1.4s infinite ease-in-out;
+}
+
+.loading-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loading-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loading-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes loading {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .chat-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+    
+    .bot-message, .user-message {
+        max-width: 90%;
+    }
+}
